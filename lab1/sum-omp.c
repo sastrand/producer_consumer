@@ -6,12 +6,14 @@
 //
 //
 #include <stdio.h>
+#include <omp.h>
 
 #define N 1000 	/* problem domain size */
 
 int sum = 0;
 
 int compute(int i) {
+  printf("tid: %2d", omp_get_thread_num());
   return i*i;
 }
 
