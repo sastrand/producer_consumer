@@ -9,6 +9,7 @@ class Sum extends java.lang.Thread {
   static final int N = 1000; 
   static final int P = 10; 
   static int sum = 0; 
+  Object lck = new Object();
 
   int low, high, psum;
 
@@ -26,9 +27,12 @@ class Sum extends java.lang.Thread {
   }
 
   public void run() {    // this method is required
+    System.out.printf("tid: %10s low: %2d high: %3d\n", Thread.currentThread().getName(), low, high);
     for (int i = low; i < high; i++)
       psum += compute(i);
-    sum += psum;
+    synchronized (lck) {
+      sum += psum;
+    }
   }
 
   public static void main(String[] args) {

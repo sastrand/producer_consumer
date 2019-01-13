@@ -20,6 +20,9 @@ void worker(long tid) {
   int low = (N/P) * tid; 	/* a simplistic partition scheme */
   int high = low + (N/P);
   int psum = 0;
+  #ifdef DEBUG
+    printf("tid: %2ld low: %3d high: %3d\n", tid, low, high);
+  #endif
   for (int i=low; i<high; i++)
     psum += compute(i);
   pthread_mutex_lock(&sumLock);
