@@ -16,4 +16,15 @@ There are eleven threads running here. It would make sense that we've got the te
 
 ### MPI
 
+The process appears to hang.
+
+### Chapel
+
+I'm able to run the Chapel programs using 1-3 threads in `sum2`, but using 4 or more appears to create a deadlock condition, or at least is taking much longer than I owuld expect.
+
+Running with three threads, though, it gererates the correct result and with a domain size of 2000 produces a correspondingly larger total sum.
+
+### Conclusion
+
+I like pThreads and Java the best because I already understand the language. When there are problems, I can think at the concurrency level and not second-guess my use of the language syntax or the enviornment setup. I imagine this is a consideration for language designers, but I am glad for this opportunity to gain some familiarity with these new languages so that in the future I can choose to use them where a more popular language's library may fall short.
 

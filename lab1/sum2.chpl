@@ -1,6 +1,5 @@
 //-----------------------------------------------------------------------------
-// Program code for CS 415/515 Parallel Programming, Portland State
-University.
+// Program code for CS 415/515 Parallel Programming, Portland State University.
 //-----------------------------------------------------------------------------
 
 // The sum program (Chapel version 2).
