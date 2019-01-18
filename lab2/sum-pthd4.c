@@ -37,10 +37,15 @@ int main(int argc, char **argv) {
     printf("Two arguments are required, N (domain size) and \
      P (quant threads)\n");
     exit(1);
-  }
+  } 
   N = atoi(argv[1]);
   P = atoi(argv[2]);
-  printf("You entered domain size N: %d and quantity threads P: %d\n", N, P);
+  if ( N < 1 || P < 1) {
+    printf("N and P must be greater than zero.");
+    N = 100;
+    P = 1;
+  }
+  printf("Continuing with domain size N: %d and quantity threads P: %d\n", N, P);
 
   pthread_t thread[P];
   pthread_mutex_init(&sumLock, NULL);   /* initialize mutex */
