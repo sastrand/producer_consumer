@@ -20,7 +20,7 @@ pthread_mutex_t sumLock;
 int compute(int i) { return i*i; }
 
 void worker(long tid) {
-  printf("Worker %ld started on CPU-%d\n", tid, sched_getcpu());
+  printf("Worker %4ld started on CPU %2d\n", tid, sched_getcpu());
   int low = (N/P) * tid; 	/* a simplistic partition scheme */
   int high = low + (N/P);
   int psum = 0;
@@ -29,7 +29,7 @@ void worker(long tid) {
   pthread_mutex_lock(&sumLock);
   sum += psum;
   pthread_mutex_unlock(&sumLock);
-  printf("Worker %ld ended\n", tid);
+  printf("Worker %4ld ended\n", tid);
 } 
 
 int main(int argc, char **argv) {
