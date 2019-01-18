@@ -34,7 +34,8 @@ void worker(long tid) {
 
 int main(int argc, char **argv) {
   if (argc<=2) {
-    printf("Two arguments are required, N (domain size) and P (quant threads)\n");
+    printf("Two arguments are required, N (domain size) and \
+     P (quant threads)\n");
     exit(1);
   }
   N = atoi(argv[1]);
@@ -43,8 +44,16 @@ int main(int argc, char **argv) {
 
   pthread_t thread[P];
   pthread_mutex_init(&sumLock, NULL);   /* initialize mutex */
-  for (long k=0; k<P; k++)    /* create threads */
+  int nprocs = sysconf(_SC_NPROCESSORS_ONLN);
+  cpu_set_t cpuset;
+  int cid = 0;
+  /* create threads */
+  for (long k=0; k<P; k++){
+    CPU_ZERO(&cpuset);
+    CPU_SET(cid++ % nprocs, &cpuset);
     pthread_create(&thread[k], NULL, (void*)worker, (void*)k);
+    pthread_setaffinity_np(thread[k], sizeof(cpu_set_t), &cpuset);
+  }
   for (long k=0; k<P; k++)    /* join threads */
     pthread_join(thread[k], NULL);
   printf("The result sum is %d (should be 332833500)\n", sum);
