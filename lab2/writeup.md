@@ -3,7 +3,7 @@
 
 ### 1. The `Pthread` Sum Program
 
-This was pretty straight-forward, walking through the examples on the slides.
+This felt pretty straight-forward, walking through the examples on the slides.
 
 I am impressed how many CPUs we can have allocated to us running on the school's machines. In this case, with Ada, I asked for 100 CPUs and got 12. On a linux lab machine, I got 8. And on babbage I got 30.
 
@@ -39,6 +39,8 @@ There is of course a race condition present here, but as the values in `a` are a
 
 I added some print statements that support this interpretation of what's going on in the code.
 
-Adding barriers acomplishes the same result as the join() in this case. The output is the same, and that meets my expectations.
+Adding barriers accomplishes the same result as the join() in this case. The output is the same, and that meets my expectations.
 
-I did have some compiling trouble adding the barrier. Based on the solution in [this SO discussion](https://stackoverflow.com/questions/15673492/gcc-compile-fails-with-pthread-and-option-std-c99), I changed the language standard from `c99` to `gnu99` to access the pthread barrier struct and methods.
+I did have some compiling trouble adding the barrier. Based on the SO discussion linked below, I changed the language standard from `c99` to `gnu99` to access the pthread barrier struct and methods.
+
+https://stackoverflow.com/questions/15673492/gcc-compile-fails-with-pthread-and-option-std-c99
