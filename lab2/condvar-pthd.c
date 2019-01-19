@@ -16,7 +16,7 @@ void sender() {
   printf("Sender starts ...\n");
   //pthread_mutex_lock(&lock);
   sleep(1);
-  pthread_cond_signal(&cond);
+//  pthread_cond_signal(&cond);
   //pthread_mutex_unlock(&lock);
   // ... add code ...
 
@@ -26,7 +26,7 @@ void sender() {
 void receiver() {
   printf("Receiver starts ...\n");
   //pthread_mutex_lock(&lock);
-  pthread_cond_wait(&cond, &lock);
+ // pthread_cond_wait(&cond, &lock);
   //pthread_mutex_unlock(&lock);
   // ... add code ...
 
