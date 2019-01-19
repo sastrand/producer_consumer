@@ -16,7 +16,7 @@ public class SignalDemo {
 	System.out.println(name + " running");
 	synchronized (synObj) {
 	  try {
-	    synObj.notify();
+	    synObj.notifyAll();
 	  } catch (Exception e) {
 	    System.err.println(e.getMessage());
 	  }
@@ -42,9 +42,11 @@ public class SignalDemo {
 
   public static void main(String[] args) {
     Thread notifier = new Thread(doNotify, "Notify");
-    Thread waiter = new Thread(doWait, "Wait");
+    Thread waiter1 = new Thread(doWait, "Wait 1");
+    Thread waiter2 = new Thread(doWait, "Wait 2");
     try {
-      waiter.start();
+      waiter1.start();
+      waiter2.start();
       Thread.sleep(100); // sleep for 100ms
       notifier.start();
     } catch (Exception e) {
