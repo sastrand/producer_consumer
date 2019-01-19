@@ -14,7 +14,10 @@ pthread_cond_t cond;
 
 void sender() {
   printf("Sender starts ...\n");
-
+  //pthread_mutex_lock(&lock);
+  sleep(1);
+  pthread_cond_signal(&cond);
+  //pthread_mutex_unlock(&lock);
   // ... add code ...
 
   printf("Signal sent!\n");
@@ -22,7 +25,9 @@ void sender() {
 
 void receiver() {
   printf("Receiver starts ...\n");
-
+  //pthread_mutex_lock(&lock);
+  pthread_cond_wait(&cond, &lock);
+  //pthread_mutex_unlock(&lock);
   // ... add code ...
 
   printf("Signal received!\n");
