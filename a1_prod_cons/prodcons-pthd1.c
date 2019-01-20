@@ -18,23 +18,23 @@ void producer() {
   sleep(1);
   for (int i=1;i<=100;i++) {
     pthread_mutex_lock(&lock);
-    pthread_cond_signal(&cond);
     add_item(buf, i);
+    pthread_cond_signal(&cond);
     printf("Producer added value %3d (qsize = %2d). Signaled.\n", i, buf->size);
     pthread_mutex_unlock(&lock);
   }
 }
 
-void consumer(void* id) {
+void consumer() {
   int i = 0, i_count = 0;
   printf("Consumer starting on core %2d\n", sched_getcpu());
   while(i_count < 100) {
     pthread_mutex_lock(&lock);
     pthread_cond_wait(&cond, &lock);
     i = remove_item(buf);
-    pthread_mutex_unlock(&lock);
     i_count++;
     printf("Value %3d consumed.\n", i);
+    pthread_mutex_unlock(&lock);
   }
 }
 
@@ -44,7 +44,8 @@ int main(int argc, char **argv) {
   buf = create_queue(20);
   pthread_mutex_init(&lock, NULL);
   pthread_cond_init(&cond, NULL);
-  //pthread_create(&tid1, NULL, (void *)consumer, NULL);
+  pthread_create(&tid1, NULL, (void *)consumer, NULL);
   producer();
   pthread_join(tid1, NULL);
 }
+
