@@ -23,7 +23,7 @@ void producer() {
     add_item(buf, i);
     pthread_cond_signal(&cond);
     printf("Producer added value %3d"
-           " (qsize = %2d) Signaled\n", i, buf->size);
+           " (qsize = %2d)\n", i, buf->size);
     pthread_mutex_unlock(&lock);
   }
 }
@@ -37,7 +37,7 @@ void consumer() {
     i = remove_item(buf);
     i_count++;
     pthread_cond_signal(&cond);
-    printf("Value %3d consumed\n", i);
+    printf("Value %3d consumed (qsize = %2d)\n", i, buf->size);
     pthread_mutex_unlock(&lock);
   }
 }
@@ -51,5 +51,6 @@ int main(int argc, char **argv) {
   pthread_create(&tid1, NULL, (void *)consumer, NULL);
   producer();
   pthread_join(tid1, NULL);
+  printf("\nMain: all done!\n\n");
 }
 
