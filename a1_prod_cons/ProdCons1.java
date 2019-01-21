@@ -14,6 +14,7 @@ public class ProdCons1 {
   static Queue<Integer> buf = new LinkedList<Integer>();
   static Integer CAP = 20;
 
+  @SuppressWarnings("Duplicates")
   static Runnable doProducer = new Runnable() {
     public void run() {
       System.out.println("Producer starting");
