@@ -1,8 +1,0 @@
-sum-pthd1
-sum-pthd4
-barrier-pthd
-barrier-pthd-orig
-condvar-pthd
-condvar-pthd2
-*.class
-
