@@ -93,6 +93,9 @@ int main(int argc, char **argv) {
   for (int i=0;i<numCons;i++) {
     pthread_join(threads[i], NULL);
     printf(" --  Consumer[%3d] joined  --\n", i);
+    pthread_mutex_lock(&lock);
+    pthread_cond_signal(&cond);
+    pthread_mutex_unlock(&lock);
   }
   int sum;
   for (int i=0;i<numCons;i++) {
