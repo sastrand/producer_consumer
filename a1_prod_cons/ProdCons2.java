@@ -28,8 +28,7 @@ public class ProdCons2 {
             }
             buf.add(i);
             synObj.notifyAll();
-            System.out.println("Producer added value " + i + " (qsize = " 
-                              + buf.size() + ")");
+            System.out.printf("Producer added value %3d (qsize = %2d)\n", i, buf.size());
           } catch (Exception e) {
             System.err.println(e.getMessage());
           }
