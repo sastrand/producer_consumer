@@ -1,218 +1,241 @@
-Script started on 2019-01-20 17:26:56-0800
+Script started on 2019-01-21 12:13:13-0800
 sastrand@babbage:~/Code/515_parallel_programming/a1_prod_cons$ ./prodcons-pthd2 9
-Consumer[  0] starting on core 21
-Consumer[  1] starting on core 22
-Consumer[  2] starting on core 23
-Consumer[  3] starting on core 24
-Consumer[  4] starting on core 25
-Consumer[  5] starting on core 26
-Consumer[  6] starting on core 27
-Consumer[  7] starting on core 28
-Producer starting on core 20
-Consumer[  8] starting on core 29
-Producer added value   1 (qsize =  1) Signaled
-Producer added value   2 (qsize =  2) Signaled
-Producer added value   3 (qsize =  3) Signaled
-Producer added value   4 (qsize =  4) Signaled
-Producer added value   5 (qsize =  5) Signaled
-Producer added value   6 (qsize =  6) Signaled
-Consumer[  2] removed value   1
-Consumer[  5] removed value   2
-Consumer[  5] removed value   3
-Producer added value   7 (qsize =  4) Signaled
-Consumer[  0] removed value   4
-Consumer[  3] removed value   5
-Consumer[  4] removed value   6
-Consumer[  2] removed value   7
-Producer added value   8 (qsize =  1) Signaled
-Producer added value   9 (qsize =  2) Signaled
-Producer added value  10 (qsize =  3) Signaled
-Consumer[  1] removed value   8
-Consumer[  1] removed value   9
-Consumer[  1] removed value  10
-Producer added value  11 (qsize =  1) Signaled
-Producer added value  12 (qsize =  2) Signaled
-Producer added value  13 (qsize =  3) Signaled
-Consumer[  7] removed value  11
-Consumer[  0] removed value  12
-Consumer[  2] removed value  13
-Producer added value  14 (qsize =  1) Signaled
-Producer added value  15 (qsize =  2) Signaled
-Consumer[  5] removed value  14
-Consumer[  5] removed value  15
-Producer added value  16 (qsize =  1) Signaled
-Producer added value  17 (qsize =  2) Signaled
-Consumer[  0] removed value  16
-Consumer[  0] removed value  17
-Producer added value  18 (qsize =  1) Signaled
-Consumer[  2] removed value  18
-Producer added value  19 (qsize =  1) Signaled
-Consumer[  0] removed value  19
-Producer added value  20 (qsize =  1) Signaled
-Producer added value  21 (qsize =  2) Signaled
-Consumer[  7] removed value  20
-Consumer[  7] removed value  21
-Producer added value  22 (qsize =  1) Signaled
-Consumer[  1] removed value  22
-Producer added value  23 (qsize =  1) Signaled
-Producer added value  24 (qsize =  2) Signaled
-Consumer[  0] removed value  23
-Consumer[  7] removed value  24
-Producer added value  25 (qsize =  1) Signaled
-Consumer[  4] removed value  25
-Producer added value  26 (qsize =  1) Signaled
-Producer added value  27 (qsize =  2) Signaled
-Consumer[  7] removed value  26
-Consumer[  1] removed value  27
-Producer added value  28 (qsize =  1) Signaled
-Producer added value  29 (qsize =  2) Signaled
-Consumer[  3] removed value  28
-Consumer[  0] removed value  29
-Producer added value  30 (qsize =  1) Signaled
-Producer added value  31 (qsize =  2) Signaled
-Consumer[  8] removed value  30
-Consumer[  5] removed value  31
-Producer added value  32 (qsize =  1) Signaled
-Consumer[  2] removed value  32
-Producer added value  33 (qsize =  1) Signaled
-Producer added value  34 (qsize =  2) Signaled
-Consumer[  1] removed value  33
-Consumer[  1] removed value  34
-Producer added value  35 (qsize =  1) Signaled
-Consumer[  4] removed value  35
-Producer added value  36 (qsize =  1) Signaled
-Producer added value  37 (qsize =  2) Signaled
-Consumer[  0] removed value  36
-Consumer[  1] removed value  37
-Producer added value  38 (qsize =  1) Signaled
-Producer added value  39 (qsize =  2) Signaled
-Producer added value  40 (qsize =  3) Signaled
-Consumer[  3] removed value  38
-Consumer[  6] removed value  39
-Consumer[  6] removed value  40
-Producer added value  41 (qsize =  1) Signaled
-Producer added value  42 (qsize =  2) Signaled
-Producer added value  43 (qsize =  3) Signaled
-Producer added value  44 (qsize =  4) Signaled
-Consumer[  4] removed value  41
-Consumer[  4] removed value  42
-Consumer[  4] removed value  43
-Consumer[  4] removed value  44
-Producer added value  45 (qsize =  1) Signaled
-Producer added value  46 (qsize =  2) Signaled
-Consumer[  0] removed value  45
-Consumer[  6] removed value  46
-Producer added value  47 (qsize =  1) Signaled
-Consumer[  5] removed value  47
-Producer added value  48 (qsize =  1) Signaled
-Producer added value  49 (qsize =  2) Signaled
-Producer added value  50 (qsize =  3) Signaled
-Producer added value  51 (qsize =  4) Signaled
-Consumer[  5] removed value  48
-Consumer[  5] removed value  49
-Consumer[  5] removed value  50
-Consumer[  1] removed value  51
-Producer added value  52 (qsize =  1) Signaled
-Producer added value  53 (qsize =  2) Signaled
-Producer added value  54 (qsize =  3) Signaled
-Consumer[  0] removed value  52
-Consumer[  0] removed value  53
-Consumer[  0] removed value  54
-Producer added value  55 (qsize =  1) Signaled
-Consumer[  0] removed value  55
-Producer added value  56 (qsize =  1) Signaled
-Producer added value  57 (qsize =  2) Signaled
-Consumer[  8] removed value  56
-Consumer[  1] removed value  57
-Producer added value  58 (qsize =  1) Signaled
-Producer added value  59 (qsize =  2) Signaled
-Consumer[  0] removed value  58
-Consumer[  4] removed value  59
-Producer added value  60 (qsize =  1) Signaled
-Producer added value  61 (qsize =  2) Signaled
-Consumer[  4] removed value  60
-Consumer[  4] removed value  61
-Producer added value  62 (qsize =  1) Signaled
-Producer added value  63 (qsize =  2) Signaled
-Producer added value  64 (qsize =  3) Signaled
-Consumer[  2] removed value  62
-Consumer[  2] removed value  63
-Consumer[  2] removed value  64
-Producer added value  65 (qsize =  1) Signaled
-Producer added value  66 (qsize =  2) Signaled
-Producer added value  67 (qsize =  3) Signaled
-Consumer[  5] removed value  65
-Consumer[  5] removed value  66
-Consumer[  5] removed value  67
-Producer added value  68 (qsize =  1) Signaled
-Producer added value  69 (qsize =  2) Signaled
-Producer added value  70 (qsize =  3) Signaled
-Producer added value  71 (qsize =  4) Signaled
-Producer added value  72 (qsize =  5) Signaled
-Producer added value  73 (qsize =  6) Signaled
-Producer added value  74 (qsize =  7) Signaled
-Producer added value  75 (qsize =  8) Signaled
-Producer added value  76 (qsize =  9) Signaled
-Producer added value  77 (qsize = 10) Signaled
-Producer added value  78 (qsize = 11) Signaled
-Producer added value  79 (qsize = 12) Signaled
-Producer added value  80 (qsize = 13) Signaled
-Consumer[  4] removed value  68
-Consumer[  4] removed value  69
-Consumer[  4] removed value  70
-Consumer[  4] removed value  71
-Consumer[  5] removed value  72
-Consumer[  5] removed value  73
-Consumer[  5] removed value  74
-Consumer[  5] removed value  75
-Consumer[  5] removed value  76
-Consumer[  5] removed value  77
-Consumer[  5] removed value  78
-Consumer[  5] removed value  79
-Consumer[  5] removed value  80
-Producer added value  81 (qsize =  1) Signaled
-Producer added value  82 (qsize =  2) Signaled
-Producer added value  83 (qsize =  3) Signaled
-Producer added value  84 (qsize =  4) Signaled
-Producer added value  85 (qsize =  5) Signaled
-Producer added value  86 (qsize =  6) Signaled
-Producer added value  87 (qsize =  7) Signaled
-Producer added value  88 (qsize =  8) Signaled
-Producer added value  89 (qsize =  9) Signaled
-Producer added value  90 (qsize = 10) Signaled
-Producer added value  91 (qsize = 11) Signaled
-Producer added value  92 (qsize = 12) Signaled
-Consumer[  3] removed value  81
-Consumer[  4] removed value  82
-Consumer[  4] removed value  83
-Consumer[  4] removed value  84
-Consumer[  4] removed value  85
-Consumer[  4] removed value  86
-Consumer[  4] removed value  87
-Consumer[  4] removed value  88
-Consumer[  4] removed value  89
-Consumer[  4] removed value  90
-Consumer[  4] removed value  91
-Consumer[  4] removed value  92
-Producer added value  93 (qsize =  1) Signaled
-Producer added value  94 (qsize =  2) Signaled
-Producer added value  95 (qsize =  3) Signaled
-Producer added value  96 (qsize =  4) Signaled
-Producer added value  97 (qsize =  5) Signaled
-Producer added value  98 (qsize =  6) Signaled
-Producer added value  99 (qsize =  7) Signaled
-Producer added value 100 (qsize =  8) Signaled
-Consumer[  4] removed value  93
-Consumer[  4] removed value  94
-Consumer[  4] removed value  95
-Consumer[  4] removed value  96
-Consumer[  4] removed value  97
-Consumer[  4] removed value  98
-Consumer[  4] removed value  99
-Consumer[  4] removed value 100
-C[0]:14, C[1]:10, C[2]: 8, C[3]: 4, C[4]:33, C[5]:21, C[6]: 3, C[7]: 5, C[8]: 2
+Consumer[  0] starting on core 17
+Consumer[  1] starting on core 18
+Consumer[  2] starting on core 19
+Consumer[  3] starting on core 20
+Consumer[  4] starting on core 21
+Consumer[  5] starting on core 22
+Consumer[  6] starting on core 23
+Consumer[  7] starting on core 24
+Producer starting on core 16
+Consumer[  8] starting on core 25
+Producer added value   1 (qsize =  1)
+Producer added value   2 (qsize =  2)
+Producer added value   3 (qsize =  3)
+Producer added value   4 (qsize =  4)
+Consumer[  2] removed value   1 (qsize = 3)
+Consumer[  2] removed value   2 (qsize = 2)
+Consumer[  2] removed value   3 (qsize = 1)
+Consumer[  5] removed value   4 (qsize = 0)
+Producer added value   5 (qsize =  1)
+Producer added value   6 (qsize =  2)
+Producer added value   7 (qsize =  3)
+Producer added value   8 (qsize =  4)
+Consumer[  2] removed value   5 (qsize = 3)
+Consumer[  2] removed value   6 (qsize = 2)
+Consumer[  8] removed value   7 (qsize = 1)
+Consumer[  5] removed value   8 (qsize = 0)
+Producer added value   9 (qsize =  1)
+Producer added value  10 (qsize =  2)
+Consumer[  0] removed value   9 (qsize = 1)
+Consumer[  0] removed value  10 (qsize = 0)
+Producer added value  11 (qsize =  1)
+Producer added value  12 (qsize =  2)
+Consumer[  5] removed value  11 (qsize = 1)
+Consumer[  1] removed value  12 (qsize = 0)
+Producer added value  13 (qsize =  1)
+Producer added value  14 (qsize =  2)
+Producer added value  15 (qsize =  3)
+Producer added value  16 (qsize =  4)
+Producer added value  17 (qsize =  5)
+Producer added value  18 (qsize =  6)
+Consumer[  2] removed value  13 (qsize = 5)
+Consumer[  2] removed value  14 (qsize = 4)
+Consumer[  2] removed value  15 (qsize = 3)
+Consumer[  6] removed value  16 (qsize = 2)
+Consumer[  5] removed value  17 (qsize = 1)
+Consumer[  5] removed value  18 (qsize = 0)
+Producer added value  19 (qsize =  1)
+Producer added value  20 (qsize =  2)
+Consumer[  7] removed value  19 (qsize = 1)
+Consumer[  7] removed value  20 (qsize = 0)
+Producer added value  21 (qsize =  1)
+Consumer[  7] removed value  21 (qsize = 0)
+Producer added value  22 (qsize =  1)
+Consumer[  3] removed value  22 (qsize = 0)
+Producer added value  23 (qsize =  1)
+Producer added value  24 (qsize =  2)
+Producer added value  25 (qsize =  3)
+Consumer[  8] removed value  23 (qsize = 2)
+Consumer[  8] removed value  24 (qsize = 1)
+Consumer[  8] removed value  25 (qsize = 0)
+Producer added value  26 (qsize =  1)
+Producer added value  27 (qsize =  2)
+Consumer[  1] removed value  26 (qsize = 1)
+Consumer[  1] removed value  27 (qsize = 0)
+Producer added value  28 (qsize =  1)
+Producer added value  29 (qsize =  2)
+Consumer[  1] removed value  28 (qsize = 1)
+Consumer[  7] removed value  29 (qsize = 0)
+Producer added value  30 (qsize =  1)
+Consumer[  0] removed value  30 (qsize = 0)
+Producer added value  31 (qsize =  1)
+Producer added value  32 (qsize =  2)
+Producer added value  33 (qsize =  3)
+Producer added value  34 (qsize =  4)
+Producer added value  35 (qsize =  5)
+Consumer[  0] removed value  31 (qsize = 4)
+Consumer[  5] removed value  32 (qsize = 3)
+Consumer[  5] removed value  33 (qsize = 2)
+Consumer[  5] removed value  34 (qsize = 1)
+Consumer[  5] removed value  35 (qsize = 0)
+Producer added value  36 (qsize =  1)
+Consumer[  5] removed value  36 (qsize = 0)
+Producer added value  37 (qsize =  1)
+Producer added value  38 (qsize =  2)
+Producer added value  39 (qsize =  3)
+Producer added value  40 (qsize =  4)
+Consumer[  4] removed value  37 (qsize = 3)
+Consumer[  4] removed value  38 (qsize = 2)
+Consumer[  3] removed value  39 (qsize = 1)
+Consumer[  7] removed value  40 (qsize = 0)
+Producer added value  41 (qsize =  1)
+Producer added value  42 (qsize =  2)
+Consumer[  1] removed value  41 (qsize = 1)
+Consumer[  1] removed value  42 (qsize = 0)
+Producer added value  43 (qsize =  1)
+Producer added value  44 (qsize =  2)
+Producer added value  45 (qsize =  3)
+Producer added value  46 (qsize =  4)
+Producer added value  47 (qsize =  5)
+Consumer[  5] removed value  43 (qsize = 4)
+Consumer[  7] removed value  44 (qsize = 3)
+Consumer[  7] removed value  45 (qsize = 2)
+Consumer[  7] removed value  46 (qsize = 1)
+Consumer[  7] removed value  47 (qsize = 0)
+Producer added value  48 (qsize =  1)
+Consumer[  7] removed value  48 (qsize = 0)
+Producer added value  49 (qsize =  1)
+Consumer[  7] removed value  49 (qsize = 0)
+Producer added value  50 (qsize =  1)
+Producer added value  51 (qsize =  2)
+Producer added value  52 (qsize =  3)
+Producer added value  53 (qsize =  4)
+Consumer[  1] removed value  50 (qsize = 3)
+Consumer[  1] removed value  51 (qsize = 2)
+Consumer[  7] removed value  52 (qsize = 1)
+Consumer[  7] removed value  53 (qsize = 0)
+Producer added value  54 (qsize =  1)
+Consumer[  7] removed value  54 (qsize = 0)
+Producer added value  55 (qsize =  1)
+Consumer[  7] removed value  55 (qsize = 0)
+Producer added value  56 (qsize =  1)
+Producer added value  57 (qsize =  2)
+Consumer[  1] removed value  56 (qsize = 1)
+Consumer[  1] removed value  57 (qsize = 0)
+Producer added value  58 (qsize =  1)
+Producer added value  59 (qsize =  2)
+Consumer[  7] removed value  58 (qsize = 1)
+Consumer[  7] removed value  59 (qsize = 0)
+Producer added value  60 (qsize =  1)
+Producer added value  61 (qsize =  2)
+Consumer[  7] removed value  60 (qsize = 1)
+Consumer[  7] removed value  61 (qsize = 0)
+Producer added value  62 (qsize =  1)
+Producer added value  63 (qsize =  2)
+Consumer[  7] removed value  62 (qsize = 1)
+Consumer[  7] removed value  63 (qsize = 0)
+Producer added value  64 (qsize =  1)
+Producer added value  65 (qsize =  2)
+Consumer[  7] removed value  64 (qsize = 1)
+Consumer[  7] removed value  65 (qsize = 0)
+Producer added value  66 (qsize =  1)
+Producer added value  67 (qsize =  2)
+Producer added value  68 (qsize =  3)
+Producer added value  69 (qsize =  4)
+Producer added value  70 (qsize =  5)
+Producer added value  71 (qsize =  6)
+Producer added value  72 (qsize =  7)
+Producer added value  73 (qsize =  8)
+Producer added value  74 (qsize =  9)
+Consumer[  7] removed value  66 (qsize = 8)
+Consumer[  7] removed value  67 (qsize = 7)
+Consumer[  7] removed value  68 (qsize = 6)
+Consumer[  7] removed value  69 (qsize = 5)
+Consumer[  7] removed value  70 (qsize = 4)
+Consumer[  7] removed value  71 (qsize = 3)
+Consumer[  7] removed value  72 (qsize = 2)
+Consumer[  7] removed value  73 (qsize = 1)
+Consumer[  7] removed value  74 (qsize = 0)
+Producer added value  75 (qsize =  1)
+Consumer[  1] removed value  75 (qsize = 0)
+Producer added value  76 (qsize =  1)
+Producer added value  77 (qsize =  2)
+Consumer[  1] removed value  76 (qsize = 1)
+Consumer[  1] removed value  77 (qsize = 0)
+Producer added value  78 (qsize =  1)
+Producer added value  79 (qsize =  2)
+Producer added value  80 (qsize =  3)
+Producer added value  81 (qsize =  4)
+Producer added value  82 (qsize =  5)
+Producer added value  83 (qsize =  6)
+Producer added value  84 (qsize =  7)
+Producer added value  85 (qsize =  8)
+Producer added value  86 (qsize =  9)
+Producer added value  87 (qsize = 10)
+Producer added value  88 (qsize = 11)
+Producer added value  89 (qsize = 12)
+Producer added value  90 (qsize = 13)
+Producer added value  91 (qsize = 14)
+Producer added value  92 (qsize = 15)
+Producer added value  93 (qsize = 16)
+Producer added value  94 (qsize = 17)
+Producer added value  95 (qsize = 18)
+Producer added value  96 (qsize = 19)
+Producer added value  97 (qsize = 20)
+Consumer[  5] removed value  78 (qsize = 19)
+Consumer[  5] removed value  79 (qsize = 18)
+Consumer[  5] removed value  80 (qsize = 17)
+Consumer[  5] removed value  81 (qsize = 16)
+Consumer[  5] removed value  82 (qsize = 15)
+Consumer[  5] removed value  83 (qsize = 14)
+Consumer[  5] removed value  84 (qsize = 13)
+Consumer[  5] removed value  85 (qsize = 12)
+Consumer[  5] removed value  86 (qsize = 11)
+Consumer[  5] removed value  87 (qsize = 10)
+Consumer[  5] removed value  88 (qsize = 9)
+Producer added value  98 (qsize = 10)
+Producer added value  99 (qsize = 11)
+Producer added value 100 (qsize = 12)
+Producer done producing. Adding flag values to buffer.
+Consumer[  7] removed value  89 (qsize = 19)
+Consumer[  7] removed value  90 (qsize = 18)
+Consumer[  7] removed value  91 (qsize = 17)
+Consumer[  7] removed value  92 (qsize = 16)
+Consumer[  7] removed value  93 (qsize = 15)
+Consumer[  7] removed value  94 (qsize = 14)
+Consumer[  7] removed value  95 (qsize = 13)
+Consumer[  7] removed value  96 (qsize = 12)
+Consumer[  7] removed value  97 (qsize = 11)
+Consumer[  7] removed value  98 (qsize = 10)
+Consumer[  0] removed value  99 (qsize = 9)
+Consumer[  0] removed value 100 (qsize = 8)
+---< Consumer[  0] ending >---
+---< Consumer[  1] ending >---
+---< Consumer[  4] ending >---
+---< Consumer[  6] ending >---
+---< Consumer[  5] ending >---
+---< Consumer[  8] ending >---
+---< Consumer[  7] ending >---
+ --  Consumer[  0] joined  --
+ --  Consumer[  1] joined  --
+---< Consumer[  2] ending >---
+---< Consumer[  3] ending >---
+ --  Consumer[  2] joined  --
+ --  Consumer[  3] joined  --
+ --  Consumer[  4] joined  --
+ --  Consumer[  5] joined  --
+ --  Consumer[  6] joined  --
+ --  Consumer[  7] joined  --
+ --  Consumer[  8] joined  --
+
+C[0]: 6, C[1]:13, C[2]: 8, C[3]: 2, C[4]: 2, C[5]:22, C[6]: 1, C[7]:42, C[8]: 4
 Total items across threads: 100
+
+Main: all done!
+
 sastrand@babbage:~/Code/515_parallel_programming/a1_prod_cons$ exit
 exit
 
-Script done on 2019-01-20 17:27:07-0800
+Script done on 2019-01-21 12:13:23-0800
