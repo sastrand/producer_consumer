@@ -61,8 +61,8 @@ public class ProdCons2 {
               synObj.notifyAll();
               System.out.printf("Consumer[%s] removed value %3d (qsize = %d)\n",
                       Thread.currentThread().getName(), item, buf.size());
-              if (buf.size() == 0) {
-                System.out.printf("Consumer[%s] removed the last element.\n", Thread.currentThread().getName());
+              if (consumedGlobalCount >= 100) {
+                System.out.printf("Consumer[%s] removed the last element.\n\n", Thread.currentThread().getName());
                 synObj.notifyAll();
                 end = true;
               }
@@ -125,7 +125,6 @@ public class ProdCons2 {
       }
       Thread.sleep(100); // sleep for 1 second
       producer.start();
-      System.out.println(" ");
       for (int i = 0; i < numCons; i++) {
         synchronized (synObj) {
           try {
