@@ -95,7 +95,7 @@ int main(int argc, char **argv) {
     if (i<numCons-1) {
       printf("C[%d]:%2d, ", i, consumer_counts[i]);
     } else {
-      printf("C[%d]:%2d\n", i);
+      printf("C[%d]:%2d\n", i, consumer_counts[i]);
     }
     sum = sum + consumer_counts[i];
   }
