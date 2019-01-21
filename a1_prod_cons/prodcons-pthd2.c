@@ -38,7 +38,7 @@ void consumer(long tid) {
     i = remove_item(buf);
     i_count++;
     pthread_cond_signal(&cond);
-    printf("Value %3d consumed\n", i);
+    printf("Consumer[%3ld] removed value %3d\n", tid, i);
     pthread_mutex_unlock(&lock);
   }
 }
