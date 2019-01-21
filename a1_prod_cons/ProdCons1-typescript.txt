@@ -1,208 +1,213 @@
-Script started on 2019-01-20 18:00:23-0800
+Script started on 2019-01-21 12:17:38-0800
 sastrand@babbage:~/Code/515_parallel_programming/a1_prod_cons$ java ProdCons1
 Consumer starting
 Producer starting
-Producer added value 1 (qsize = 1)
-Producer added value 2 (qsize = 2)
-Producer added value 3 (qsize = 3)
-Producer added value 4 (qsize = 4)
-Producer added value 5 (qsize = 5)
-Producer added value 6 (qsize = 6)
-Producer added value 7 (qsize = 7)
-Producer added value 8 (qsize = 8)
-Producer added value 9 (qsize = 9)
-Producer added value 10 (qsize = 10)
-Producer added value 11 (qsize = 11)
-Producer added value 12 (qsize = 12)
-Producer added value 13 (qsize = 13)
-Producer added value 14 (qsize = 14)
-Producer added value 15 (qsize = 15)
-Producer added value 16 (qsize = 16)
-Producer added value 17 (qsize = 17)
-Producer added value 18 (qsize = 18)
-Producer added value 19 (qsize = 19)
-Producer added value 20 (qsize = 20)
-Value 1 consumed
-Value 2 consumed
-Value 3 consumed
-Value 4 consumed
-Value 5 consumed
-Value 6 consumed
-Value 7 consumed
-Value 8 consumed
-Value 9 consumed
-Value 10 consumed
-Value 11 consumed
-Value 12 consumed
-Value 13 consumed
-Value 14 consumed
-Value 15 consumed
-Value 16 consumed
-Value 17 consumed
-Value 18 consumed
-Value 19 consumed
-Value 20 consumed
-Producer added value 21 (qsize = 1)
-Producer added value 22 (qsize = 2)
-Producer added value 23 (qsize = 3)
-Producer added value 24 (qsize = 4)
-Producer added value 25 (qsize = 5)
-Producer added value 26 (qsize = 6)
-Producer added value 27 (qsize = 7)
-Producer added value 28 (qsize = 8)
-Producer added value 29 (qsize = 9)
-Producer added value 30 (qsize = 10)
-Producer added value 31 (qsize = 11)
-Producer added value 32 (qsize = 12)
-Producer added value 33 (qsize = 13)
-Producer added value 34 (qsize = 14)
-Producer added value 35 (qsize = 15)
-Producer added value 36 (qsize = 16)
-Producer added value 37 (qsize = 17)
-Producer added value 38 (qsize = 18)
-Producer added value 39 (qsize = 19)
-Producer added value 40 (qsize = 20)
-Value 21 consumed
-Value 22 consumed
-Value 23 consumed
-Value 24 consumed
-Value 25 consumed
-Value 26 consumed
-Value 27 consumed
-Value 28 consumed
-Value 29 consumed
-Value 30 consumed
-Value 31 consumed
-Value 32 consumed
-Value 33 consumed
-Value 34 consumed
-Value 35 consumed
-Value 36 consumed
-Producer added value 41 (qsize = 5)
-Producer added value 42 (qsize = 6)
-Producer added value 43 (qsize = 7)
-Producer added value 44 (qsize = 8)
-Producer added value 45 (qsize = 9)
-Producer added value 46 (qsize = 10)
-Producer added value 47 (qsize = 11)
-Producer added value 48 (qsize = 12)
-Producer added value 49 (qsize = 13)
-Producer added value 50 (qsize = 14)
-Producer added value 51 (qsize = 15)
-Producer added value 52 (qsize = 16)
-Producer added value 53 (qsize = 17)
-Producer added value 54 (qsize = 18)
-Producer added value 55 (qsize = 19)
-Producer added value 56 (qsize = 20)
-Value 37 consumed
-Value 38 consumed
-Value 39 consumed
-Value 40 consumed
-Value 41 consumed
-Value 42 consumed
-Value 43 consumed
-Value 44 consumed
-Value 45 consumed
-Value 46 consumed
-Producer added value 57 (qsize = 11)
-Producer added value 58 (qsize = 12)
-Producer added value 59 (qsize = 13)
-Producer added value 60 (qsize = 14)
-Producer added value 61 (qsize = 15)
-Producer added value 62 (qsize = 16)
-Producer added value 63 (qsize = 17)
-Producer added value 64 (qsize = 18)
-Producer added value 65 (qsize = 19)
-Producer added value 66 (qsize = 20)
-Value 47 consumed
-Value 48 consumed
-Value 49 consumed
-Value 50 consumed
-Value 51 consumed
-Value 52 consumed
-Value 53 consumed
-Value 54 consumed
-Value 55 consumed
-Value 56 consumed
-Value 57 consumed
-Value 58 consumed
-Value 59 consumed
-Value 60 consumed
-Value 61 consumed
-Value 62 consumed
-Value 63 consumed
-Value 64 consumed
-Value 65 consumed
-Value 66 consumed
-Producer added value 67 (qsize = 1)
-Producer added value 68 (qsize = 2)
-Producer added value 69 (qsize = 3)
-Producer added value 70 (qsize = 4)
-Producer added value 71 (qsize = 5)
-Producer added value 72 (qsize = 6)
-Producer added value 73 (qsize = 7)
-Producer added value 74 (qsize = 8)
-Producer added value 75 (qsize = 9)
-Producer added value 76 (qsize = 10)
-Producer added value 77 (qsize = 11)
-Producer added value 78 (qsize = 12)
-Producer added value 79 (qsize = 13)
-Producer added value 80 (qsize = 14)
-Producer added value 81 (qsize = 15)
-Producer added value 82 (qsize = 16)
-Producer added value 83 (qsize = 17)
-Producer added value 84 (qsize = 18)
-Producer added value 85 (qsize = 19)
-Producer added value 86 (qsize = 20)
-Value 67 consumed
-Value 68 consumed
-Value 69 consumed
-Value 70 consumed
-Value 71 consumed
-Value 72 consumed
-Value 73 consumed
-Value 74 consumed
-Value 75 consumed
-Value 76 consumed
-Value 77 consumed
-Value 78 consumed
-Value 79 consumed
-Value 80 consumed
-Value 81 consumed
-Value 82 consumed
-Value 83 consumed
-Value 84 consumed
-Value 85 consumed
-Value 86 consumed
-Producer added value 87 (qsize = 1)
-Producer added value 88 (qsize = 2)
-Producer added value 89 (qsize = 3)
-Producer added value 90 (qsize = 4)
-Producer added value 91 (qsize = 5)
-Producer added value 92 (qsize = 6)
-Producer added value 93 (qsize = 7)
-Producer added value 94 (qsize = 8)
-Producer added value 95 (qsize = 9)
-Producer added value 96 (qsize = 10)
-Producer added value 97 (qsize = 11)
-Producer added value 98 (qsize = 12)
-Producer added value 99 (qsize = 13)
-Producer added value 100 (qsize = 14)
-Value 87 consumed
-Value 88 consumed
-Value 89 consumed
-Value 90 consumed
-Value 91 consumed
-Value 92 consumed
-Value 93 consumed
-Value 94 consumed
-Value 95 consumed
-Value 96 consumed
-Value 97 consumed
-Value 98 consumed
-Value 99 consumed
-Value 100 consumed
+Producer added value   1 (qsize =  1)
+Producer added value   2 (qsize =  2)
+Producer added value   3 (qsize =  3)
+Producer added value   4 (qsize =  4)
+Producer added value   5 (qsize =  5)
+Producer added value   6 (qsize =  6)
+Producer added value   7 (qsize =  7)
+Producer added value   8 (qsize =  8)
+Producer added value   9 (qsize =  9)
+Producer added value  10 (qsize = 10)
+Value   1 consumed (qsize =  9)
+Value   2 consumed (qsize =  8)
+Value   3 consumed (qsize =  7)
+Value   4 consumed (qsize =  6)
+Value   5 consumed (qsize =  5)
+Value   6 consumed (qsize =  4)
+Value   7 consumed (qsize =  3)
+Value   8 consumed (qsize =  2)
+Value   9 consumed (qsize =  1)
+Value  10 consumed (qsize =  0)
+Producer added value  11 (qsize =  1)
+Producer added value  12 (qsize =  2)
+Producer added value  13 (qsize =  3)
+Producer added value  14 (qsize =  4)
+Producer added value  15 (qsize =  5)
+Producer added value  16 (qsize =  6)
+Producer added value  17 (qsize =  7)
+Producer added value  18 (qsize =  8)
+Producer added value  19 (qsize =  9)
+Producer added value  20 (qsize = 10)
+Producer added value  21 (qsize = 11)
+Producer added value  22 (qsize = 12)
+Producer added value  23 (qsize = 13)
+Producer added value  24 (qsize = 14)
+Producer added value  25 (qsize = 15)
+Producer added value  26 (qsize = 16)
+Producer added value  27 (qsize = 17)
+Producer added value  28 (qsize = 18)
+Producer added value  29 (qsize = 19)
+Producer added value  30 (qsize = 20)
+Value  11 consumed (qsize = 19)
+Value  12 consumed (qsize = 18)
+Value  13 consumed (qsize = 17)
+Value  14 consumed (qsize = 16)
+Value  15 consumed (qsize = 15)
+Value  16 consumed (qsize = 14)
+Value  17 consumed (qsize = 13)
+Value  18 consumed (qsize = 12)
+Value  19 consumed (qsize = 11)
+Value  20 consumed (qsize = 10)
+Value  21 consumed (qsize =  9)
+Producer added value  31 (qsize = 10)
+Producer added value  32 (qsize = 11)
+Producer added value  33 (qsize = 12)
+Producer added value  34 (qsize = 13)
+Producer added value  35 (qsize = 14)
+Producer added value  36 (qsize = 15)
+Producer added value  37 (qsize = 16)
+Producer added value  38 (qsize = 17)
+Producer added value  39 (qsize = 18)
+Producer added value  40 (qsize = 19)
+Producer added value  41 (qsize = 20)
+Value  22 consumed (qsize = 19)
+Value  23 consumed (qsize = 18)
+Value  24 consumed (qsize = 17)
+Value  25 consumed (qsize = 16)
+Value  26 consumed (qsize = 15)
+Value  27 consumed (qsize = 14)
+Value  28 consumed (qsize = 13)
+Value  29 consumed (qsize = 12)
+Value  30 consumed (qsize = 11)
+Value  31 consumed (qsize = 10)
+Value  32 consumed (qsize =  9)
+Value  33 consumed (qsize =  8)
+Value  34 consumed (qsize =  7)
+Value  35 consumed (qsize =  6)
+Value  36 consumed (qsize =  5)
+Value  37 consumed (qsize =  4)
+Value  38 consumed (qsize =  3)
+Value  39 consumed (qsize =  2)
+Value  40 consumed (qsize =  1)
+Value  41 consumed (qsize =  0)
+Producer added value  42 (qsize =  1)
+Producer added value  43 (qsize =  2)
+Producer added value  44 (qsize =  3)
+Producer added value  45 (qsize =  4)
+Producer added value  46 (qsize =  5)
+Producer added value  47 (qsize =  6)
+Producer added value  48 (qsize =  7)
+Producer added value  49 (qsize =  8)
+Producer added value  50 (qsize =  9)
+Producer added value  51 (qsize = 10)
+Producer added value  52 (qsize = 11)
+Producer added value  53 (qsize = 12)
+Producer added value  54 (qsize = 13)
+Producer added value  55 (qsize = 14)
+Producer added value  56 (qsize = 15)
+Producer added value  57 (qsize = 16)
+Producer added value  58 (qsize = 17)
+Producer added value  59 (qsize = 18)
+Producer added value  60 (qsize = 19)
+Producer added value  61 (qsize = 20)
+Value  42 consumed (qsize = 19)
+Value  43 consumed (qsize = 18)
+Value  44 consumed (qsize = 17)
+Value  45 consumed (qsize = 16)
+Value  46 consumed (qsize = 15)
+Value  47 consumed (qsize = 14)
+Value  48 consumed (qsize = 13)
+Value  49 consumed (qsize = 12)
+Value  50 consumed (qsize = 11)
+Value  51 consumed (qsize = 10)
+Value  52 consumed (qsize =  9)
+Value  53 consumed (qsize =  8)
+Value  54 consumed (qsize =  7)
+Value  55 consumed (qsize =  6)
+Value  56 consumed (qsize =  5)
+Value  57 consumed (qsize =  4)
+Value  58 consumed (qsize =  3)
+Value  59 consumed (qsize =  2)
+Value  60 consumed (qsize =  1)
+Value  61 consumed (qsize =  0)
+Producer added value  62 (qsize =  1)
+Producer added value  63 (qsize =  2)
+Producer added value  64 (qsize =  3)
+Producer added value  65 (qsize =  4)
+Producer added value  66 (qsize =  5)
+Producer added value  67 (qsize =  6)
+Producer added value  68 (qsize =  7)
+Producer added value  69 (qsize =  8)
+Producer added value  70 (qsize =  9)
+Producer added value  71 (qsize = 10)
+Producer added value  72 (qsize = 11)
+Producer added value  73 (qsize = 12)
+Producer added value  74 (qsize = 13)
+Producer added value  75 (qsize = 14)
+Producer added value  76 (qsize = 15)
+Producer added value  77 (qsize = 16)
+Producer added value  78 (qsize = 17)
+Producer added value  79 (qsize = 18)
+Producer added value  80 (qsize = 19)
+Producer added value  81 (qsize = 20)
+Value  62 consumed (qsize = 19)
+Value  63 consumed (qsize = 18)
+Value  64 consumed (qsize = 17)
+Value  65 consumed (qsize = 16)
+Value  66 consumed (qsize = 15)
+Value  67 consumed (qsize = 14)
+Value  68 consumed (qsize = 13)
+Value  69 consumed (qsize = 12)
+Value  70 consumed (qsize = 11)
+Value  71 consumed (qsize = 10)
+Value  72 consumed (qsize =  9)
+Value  73 consumed (qsize =  8)
+Value  74 consumed (qsize =  7)
+Value  75 consumed (qsize =  6)
+Value  76 consumed (qsize =  5)
+Value  77 consumed (qsize =  4)
+Value  78 consumed (qsize =  3)
+Value  79 consumed (qsize =  2)
+Value  80 consumed (qsize =  1)
+Value  81 consumed (qsize =  0)
+Producer added value  82 (qsize =  1)
+Producer added value  83 (qsize =  2)
+Producer added value  84 (qsize =  3)
+Producer added value  85 (qsize =  4)
+Producer added value  86 (qsize =  5)
+Producer added value  87 (qsize =  6)
+Producer added value  88 (qsize =  7)
+Producer added value  89 (qsize =  8)
+Producer added value  90 (qsize =  9)
+Producer added value  91 (qsize = 10)
+Producer added value  92 (qsize = 11)
+Producer added value  93 (qsize = 12)
+Producer added value  94 (qsize = 13)
+Producer added value  95 (qsize = 14)
+Producer added value  96 (qsize = 15)
+Producer added value  97 (qsize = 16)
+Producer added value  98 (qsize = 17)
+Producer added value  99 (qsize = 18)
+Producer added value 100 (qsize = 19)
+Value  82 consumed (qsize = 18)
+Value  83 consumed (qsize = 17)
+Value  84 consumed (qsize = 16)
+Value  85 consumed (qsize = 15)
+Value  86 consumed (qsize = 14)
+Value  87 consumed (qsize = 13)
+Value  88 consumed (qsize = 12)
+ --< Producer joined >--
+Value  89 consumed (qsize = 11)
+Value  90 consumed (qsize = 10)
+Value  91 consumed (qsize =  9)
+Value  92 consumed (qsize =  8)
+Value  93 consumed (qsize =  7)
+Value  94 consumed (qsize =  6)
+Value  95 consumed (qsize =  5)
+Value  96 consumed (qsize =  4)
+Value  97 consumed (qsize =  3)
+Value  98 consumed (qsize =  2)
+Value  99 consumed (qsize =  1)
+Value 100 consumed (qsize =  0)
+ --< Consumer joined >--
+
+Main: done!
+
 sastrand@babbage:~/Code/515_parallel_programming/a1_prod_cons$ exit
 exit
 
-Script done on 2019-01-20 18:00:32-0800
+Script done on 2019-01-21 12:17:44-0800
