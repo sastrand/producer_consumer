@@ -35,14 +35,22 @@ void consumer(long tid) {
   printf("Consumer[%3ld] starting on core %2d\n", tid, sched_getcpu());
   while(1) {
     pthread_mutex_lock(&lock);
-    while (buf->size<1) pthread_cond_wait(&cond, &lock);
-    item = remove_item(buf);
-    consumed_count++;
-    pthread_cond_signal(&cond);
-    printf("Consumer[%3ld] removed value %3d\n", tid, item);
-    if (consumed_count >= 99) {
-      end = 1;
+    while (buf->size<1) {
+      pthread_cond_wait(&cond, &lock);
+      if (consumed_count >= 99) {
+        end = 1;
+        pthread_cond_broadcast(&cond);
+        break;
+      }
+    } if (end != 1) {
+      item = remove_item(buf);
+      consumed_count++;
       pthread_cond_signal(&cond);
+      printf("Consumer[%3ld] removed value %3d\n", tid, item);
+      if (consumed_count >= 99) {
+        end = 1;
+        pthread_cond_signal(&cond);
+      }
     }
     pthread_mutex_unlock(&lock);
     if (end) break;
