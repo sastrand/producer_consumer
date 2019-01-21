@@ -51,5 +51,6 @@ int main(int argc, char **argv) {
   pthread_create(&tid1, NULL, (void *)consumer, NULL);
   producer();
   pthread_join(tid1, NULL);
+  printf("\nMain: all done!\n\n");
 }
 
