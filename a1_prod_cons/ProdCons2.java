@@ -125,6 +125,14 @@ public class ProdCons2 {
       for (int i = 0; i < numCons; i++) {
         threads.get(i).join();
         System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
+        synchronized (synObj) {
+          try {
+            synObj.notifyAll();
+          }
+          catch (Exception e) {
+            System.err.println(e.getMessage());
+          }
+        }
       }
       printConsumerCounts();
     } catch (Exception e) {
