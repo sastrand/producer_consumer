@@ -61,6 +61,11 @@ public class ProdCons2 {
               synObj.notifyAll();
               System.out.printf("Consumer[%s] removed value %3d (qsize = %d)\n",
                       Thread.currentThread().getName(), item, buf.size());
+              if (buf.size() == 0) {
+                System.out.printf("Consumer[%s] removed the last element.\n", Thread.currentThread().getName());
+                synObj.notifyAll();
+                end = true;
+              }
             }
           } catch (Exception e) {
             System.err.println(e.getMessage());
