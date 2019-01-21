@@ -14,8 +14,8 @@
 pthread_mutex_t lock;
 pthread_cond_t cond;
 queue_t *buf;
-int consumed_global_count = 0;
 int consumer_counts[1000] = {0};
+int numCons = 0;
 
 void producer() {
   printf("Producer starting on core %2d\n", sched_getcpu());
@@ -28,30 +28,36 @@ void producer() {
     printf("Producer added value %3d (qsize = %2d)\n", i, buf->size);
     pthread_mutex_unlock(&lock);
   }
+  printf("Producer done producing. Adding flag values to buffer.\n");
+  for (int i=0;i<numCons;i++) {
+    pthread_mutex_lock(&lock);
+    if (buf->size>=CAP) pthread_cond_wait(&cond, &lock);
+    add_item(buf, -1);
+    pthread_cond_signal(&cond);
+    pthread_mutex_unlock(&lock);
+  }
 }
 
 void consumer(long tid) {
-  int item = 0, end = 0;
+  int item = 0;
   printf("Consumer[%3ld] starting on core %2d\n", tid, sched_getcpu());
-  while(!end) {
+  while(1) {
     pthread_mutex_lock(&lock);
-    while (buf->size<1 && !end) {
+    while (buf->size<1) {
       pthread_cond_wait(&cond, &lock);
-      if (consumed_global_count >= 100) {
-        end = 1;
-        pthread_cond_broadcast(&cond);
-      }
-    } if (!end) {
-      item = remove_item(buf);
-      consumed_global_count++;
-      consumer_counts[tid]++;
-      pthread_cond_signal(&cond);
-      printf("Consumer[%3ld] removed value %3d (qsize = %d)\n", 
-             tid, item, buf->size);
+    } 
+    item = remove_item(buf);
+    if (item == -1) {
+      printf("---< Consumer[%3ld] ending >---\n", tid);
+      pthread_mutex_unlock(&lock);
+      return;
     }
+    consumer_counts[tid]++;
+    pthread_cond_signal(&cond);
+    printf("Consumer[%3ld] removed value %3d (qsize = %d)\n", 
+           tid, item, buf->size);
     pthread_mutex_unlock(&lock);
   }
-  printf("---< Consumer[%3ld] ending >---\n", tid);
 }
 
 int get_numCons(int argc, char **argv) {
@@ -72,7 +78,7 @@ int get_numCons(int argc, char **argv) {
 }
 
 int main(int argc, char **argv) {
-  int numCons = get_numCons(argc, argv);
+  numCons = get_numCons(argc, argv);
   pthread_t threads[numCons];
   long tids[numCons];
   buf = create_queue(CAP);
@@ -85,9 +91,9 @@ int main(int argc, char **argv) {
   for (int i=0;i<numCons;i++) {
     pthread_join(threads[i], NULL);
     printf(" --  Consumer[%3d] joined  --\n", i);
-    pthread_mutex_lock(&lock);
-    pthread_cond_signal(&cond);
-    pthread_mutex_unlock(&lock);
+//    pthread_mutex_lock(&lock);
+//    pthread_cond_signal(&cond);
+//    pthread_mutex_unlock(&lock);
   }
   int sum;
   for (int i=0;i<numCons;i++) {
