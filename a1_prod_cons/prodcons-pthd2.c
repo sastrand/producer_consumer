@@ -14,7 +14,8 @@
 pthread_mutex_t lock;
 pthread_cond_t cond;
 queue_t *buf;
-int consumed_count = 0;
+int consumed_global_count = 0;
+int consumer_counts[100] = {0};
 
 void producer() {
   printf("Producer starting on core %2d\n", sched_getcpu());
@@ -37,17 +38,18 @@ void consumer(long tid) {
     pthread_mutex_lock(&lock);
     while (buf->size<1) {
       pthread_cond_wait(&cond, &lock);
-      if (consumed_count >= 99) {
+      if (consumed_global_count >= 100) {
         end = 1;
         pthread_cond_broadcast(&cond);
         break;
       }
     } if (end != 1) {
       item = remove_item(buf);
-      consumed_count++;
+      consumed_global_count++;
+      consumer_counts[tid]++;
       pthread_cond_signal(&cond);
       printf("Consumer[%3ld] removed value %3d\n", tid, item);
-      if (consumed_count >= 99) {
+      if (consumed_global_count >= 100) {
         end = 1;
         pthread_cond_signal(&cond);
       }
@@ -87,7 +89,16 @@ int main(int argc, char **argv) {
   producer();
   for (int i=0;i<numCons;i++) {
     pthread_join(threads[i], NULL);
-    printf("Thread %3d reaped.\n", i);
   }
+  int sum;
+  for (int i=0;i<numCons;i++) {
+    if (i<numCons-1) {
+      printf("C[%d]:%2d, ", i, consumer_counts[i]);
+    } else {
+      printf("C[%d]:%2d\n", i);
+    }
+    sum = sum + consumer_counts[i];
+  }
+  printf("Total items across threads: %d\n", sum);
 }
 
