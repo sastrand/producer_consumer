@@ -129,13 +129,6 @@ public class ProdCons2 {
       Thread.sleep(100); // sleep for 1 second
       producer.start();
       for (int i = 0; i < numCons; i++) {
-//        synchronized (synObj) {
-//          try {
-//            synObj.notifyAll();
-//          } catch (Exception e) {
-//            System.err.println(e.getMessage());
-//          }
-//        }
         threads.get(i).join();
         System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
       }
