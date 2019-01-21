@@ -15,7 +15,7 @@ pthread_mutex_t lock;
 pthread_cond_t cond;
 queue_t *buf;
 int consumed_global_count = 0;
-int consumer_counts[100] = {0};
+int consumer_counts[1000] = {0};
 
 void producer() {
   printf("Producer starting on core %2d\n", sched_getcpu());
