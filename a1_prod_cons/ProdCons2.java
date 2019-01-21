@@ -108,6 +108,7 @@ public class ProdCons2 {
 
   public static void main(String[] args) {
     numCons = getNumCons(args);
+    Integer joined = 0;
     ArrayList<Thread> threads = new ArrayList<>();
     for (int i = 0; i < numCons; i++) {
       threads.add(new Thread(doConsumer, Integer.toString(i)));
@@ -121,16 +122,19 @@ public class ProdCons2 {
       Thread.sleep(100); // sleep for 1 second
       producer.start();
       System.out.println(" ");
-      for (int i = 0; i < numCons; i++) {
-        threads.get(i).join();
-        System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
-        synchronized (synObj) {
-          try {
-            synObj.notifyAll();
+      while (joined < numCons) {
+        for (int i = 0; i < numCons; i++) {
+          synchronized (synObj) {
+            try {
+              synObj.notifyAll();
+            }
+            catch (Exception e) {
+              System.err.println(e.getMessage());
+            }
           }
-          catch (Exception e) {
-            System.err.println(e.getMessage());
-          }
+          threads.get(i).join();
+          joined++;
+          System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
         }
       }
       printConsumerCounts();
