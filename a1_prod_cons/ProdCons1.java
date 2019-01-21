@@ -10,13 +10,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ProdCons1 {
-  static String synObj = "synObj";
-  static Queue<Integer> buf = new LinkedList<Integer>();
-  static Integer CAP = 20;
+  private static final String synObj = "synObj";
+  private static Queue<Integer> buf = new LinkedList<>();
 
   @SuppressWarnings("Duplicates")
-  static Runnable doProducer = new Runnable() {
+  private static Runnable doProducer = new Runnable() {
     public void run() {
+      Integer CAP = 20;
       System.out.println("Producer starting");
       for (int i = 1; i <= 100; i++) {
         synchronized (synObj) {
@@ -26,8 +26,8 @@ public class ProdCons1 {
             }
             buf.add(i);
             synObj.notifyAll();
-            System.out.println("Producer added value " + i + " (qsize = " 
-                              + buf.size() + ")");
+            System.out.printf("Producer added value %3d (qsize = %2d)\n",
+                               i, buf.size());
           } catch (Exception e) {
             System.err.println(e.getMessage());
           }
@@ -36,7 +36,7 @@ public class ProdCons1 {
     }
   };
 
-  static Runnable doConsumer = new Runnable() {
+  private static Runnable doConsumer = new Runnable() {
     public void run() {
       Integer i = 0;
       Integer i_count = 0;
@@ -50,7 +50,8 @@ public class ProdCons1 {
             i = buf.remove();
             i_count = i_count + 1;
             synObj.notifyAll();
-            System.out.println("Value " + i + " consumed");
+            System.out.printf("Value %3d consumed (qsize = %2d)\n",
+                              i, buf.size());
             } catch (Exception e) {
               System.err.println(e.getMessage());
           }
@@ -66,6 +67,10 @@ public class ProdCons1 {
       consumer.start();
       Thread.sleep(100); // sleep for 1 second
       producer.start();
+      producer.join();
+      System.out.println(" --< Producer joined >--");
+      consumer.join();
+      System.out.println(" --< Consumer joined >--");
     } catch (Exception e) {
       System.err.println(e.getMessage());
     }
