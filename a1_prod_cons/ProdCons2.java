@@ -42,18 +42,17 @@ public class ProdCons2 {
     public void run() {
       String tName = Thread.currentThread().getName();
       Integer tid = Integer.parseInt(tName);
-      Integer item = 0;
+      Integer item;
       boolean end = false;
       System.out.println("Consumer[" + tName + "] starting");
-      while (true) {
+      while (!end) {
         synchronized (synObj) {
           try {
-            while (buf.size() < 1) {
+            while (buf.size() < 1 && !end) {
               synObj.wait();
               if (consumedGlobalCount >= 100) {
                 end = true;
                 synObj.notifyAll();
-                break;
               }
             }
             if (!end) {
@@ -61,20 +60,16 @@ public class ProdCons2 {
               consumedGlobalCount = consumedGlobalCount + 1;
               consumerCounts.set(tid, consumerCounts.get(tid) + 1);
               synObj.notifyAll();
-              System.out.println("Consumer[" + Thread.currentThread().getName()
-                                 + "] removed value " + item);
-              if (consumedGlobalCount >= 100) {
-                end = true;
-                synObj.notifyAll();
-              }
+              System.out.printf("Consumer[%s] removed value %3d (qsize = %d)\n",
+                                Thread.currentThread().getName(), item, buf.size());
             }
           } 
           catch (Exception e) {
             System.err.println(e.getMessage());
           }
         }
-        if (end) break;
       }
+      System.out.printf("---< Consumer[%s] ending. >---\n", tid);
     }
   };
 
@@ -126,8 +121,10 @@ public class ProdCons2 {
       } 
       Thread.sleep(100); // sleep for 1 second
       producer.start();
+      System.out.println(" ");
       for (int i = 0; i < numCons; i++) {
         threads.get(i).join();
+        System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
       }
       printConsumerCounts();
     } catch (Exception e) {
