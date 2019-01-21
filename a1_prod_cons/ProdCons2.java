@@ -136,7 +136,7 @@ public class ProdCons2 {
     } catch (Exception e) {
       System.err.println(e.getMessage());
     }
-    System.out.println("Main: all done!");
+    System.out.println("Main: all done!\n");
   }
 
 }
