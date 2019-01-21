@@ -14,7 +14,7 @@ public class ProdCons2 {
   private static final Integer CAP = 20;
   private static Integer numCons = 1;
   private static Integer consumedGlobalCount = 0;
-  private static String [] consumerCounts = new String[1000];
+  private static ArrayList<Integer> consumerCounts = new ArrayList<>();
 
   @SuppressWarnings("Duplicates")
   static private Runnable doProducer = new Runnable() {
@@ -42,7 +42,7 @@ public class ProdCons2 {
     public void run() {
       String tName = Thread.currentThread().getName();
       Integer tid = Integer.parseInt(tName);
-      Integer i = 0;
+      Integer item = 0;
       boolean end = false;
       System.out.println("Consumer[" + tName + "] starting");
       while (true) {
@@ -57,12 +57,12 @@ public class ProdCons2 {
               }
             }
             if (!end) {
-              i = buf.remove();
+              item = buf.remove();
               consumedGlobalCount = consumedGlobalCount + 1;
-              consumerCounts[tid] = consumerCounts[tid] + 1;
+              consumerCounts.set(tid, consumerCounts.get(tid) + 1);
               synObj.notifyAll();
               System.out.println("Consumer[" + Thread.currentThread().getName()
-                                 + "] removed value " + i);
+                                 + "] removed value " + item);
               if (consumedGlobalCount >= 100) {
                 end = true;
                 synObj.notifyAll();
@@ -100,14 +100,16 @@ public class ProdCons2 {
 
   private static void printConsumerCounts() {
     Integer sum = 0;
+    System.out.printf("\n");
     for (int i=0;i<numCons;i++) {
       if (i<numCons-1) {
-        System.out.printf("C[%d]:%d, ", i, -1);
+        System.out.printf("C[%d]:%d, ", i, consumerCounts.get(i));
       } else {
-        System.out.printf("C[%d]:%d\n", i, -1);
+        System.out.printf("C[%d]:%d\n", i, consumerCounts.get(i));
       }
-      //sum = sum + Integer.parseInt(consumerCounts[i]);
+      sum = sum + consumerCounts.get(i);
     }
+    System.out.printf("Total items across threads: %d\n\n", sum);
   }
 
   public static void main(String[] args) {
@@ -115,6 +117,7 @@ public class ProdCons2 {
     ArrayList<Thread> threads = new ArrayList<>();
     for (int i = 0; i < numCons; i++) {
       threads.add(new Thread(doConsumer, Integer.toString(i)));
+      consumerCounts.add(0);
     }
     Thread producer = new Thread(doProducer);
     try {
@@ -125,7 +128,6 @@ public class ProdCons2 {
       producer.start();
       for (int i = 0; i < numCons; i++) {
         threads.get(i).join();
-        System.out.printf("Joined %d\n", i);
       }
       printConsumerCounts();
     } catch (Exception e) {
