@@ -6,6 +6,7 @@
 // (c) 2019
 //----------------------------------------------------------------------------- 
 
+import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -74,6 +75,7 @@ public class ProdCons1 {
     } catch (Exception e) {
       System.err.println(e.getMessage());
     }
+    System.out.println("\nMain: done!\n");
   }
 
 }
