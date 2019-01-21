@@ -13,7 +13,6 @@ public class ProdCons2 {
   private static Queue<Integer> buf = new LinkedList<>();
   private static final Integer CAP = 20;
   private static Integer numCons = 1;
-  private static Integer consumedGlobalCount = 0;
   private static ArrayList<Integer> consumerCounts = new ArrayList<>();
 
   @SuppressWarnings("Duplicates")
@@ -34,6 +33,20 @@ public class ProdCons2 {
           }
         }
       }
+      System.out.println("Producer done producing. Adding flag values to buffer.");
+      for (int i = 0; i < numCons; i++) {
+        synchronized (synObj) {
+          try {
+            if (buf.size() >= CAP) {
+              synObj.wait();
+            }
+            buf.add(-1);
+            synObj.notifyAll();
+          } catch (Exception e) {
+            System.err.println(e.getMessage());
+          }
+        }
+      }
     }
   };
 
@@ -42,37 +55,28 @@ public class ProdCons2 {
       String tName = Thread.currentThread().getName();
       Integer tid = Integer.parseInt(tName);
       Integer item;
-      boolean end = false;
       System.out.println("Consumer[" + tName + "] starting");
-      while (!end) {
+      while (true) {
         synchronized (synObj) {
           try {
-            while (buf.size() < 1 && !end) {
+            while (buf.size() < 1) {
               synObj.wait();
-              if (consumedGlobalCount >= 100) {
-                end = true;
-                synObj.notifyAll();
-              }
             }
-            if (!end) {
-              item = buf.remove();
-              consumedGlobalCount = consumedGlobalCount + 1;
-              consumerCounts.set(tid, consumerCounts.get(tid) + 1);
+            item = buf.remove();
+            if (item == -1) {
               synObj.notifyAll();
-              System.out.printf("Consumer[%s] removed value %3d (qsize = %d)\n",
-                      Thread.currentThread().getName(), item, buf.size());
-              if (consumedGlobalCount >= 100) {
-                System.out.printf("Consumer[%s] removed the last element.\n\n", Thread.currentThread().getName());
-                synObj.notifyAll();
-                end = true;
-              }
+              System.out.printf("---< Consumer[%s] ending. >---\n", tid);
+              return;
             }
+            consumerCounts.set(tid, consumerCounts.get(tid) + 1);
+            synObj.notifyAll();
+            System.out.printf("Consumer[%s] removed value %3d (qsize = %d)\n",
+                    Thread.currentThread().getName(), item, buf.size());
           } catch (Exception e) {
             System.err.println(e.getMessage());
           }
         }
       }
-      System.out.printf("---< Consumer[%s] ending. >---\n", tid);
     }
   };
 
@@ -112,7 +116,6 @@ public class ProdCons2 {
 
   public static void main(String[] args) {
     numCons = getNumCons(args);
-    Integer joined = 0;
     ArrayList<Thread> threads = new ArrayList<>();
     for (int i = 0; i < numCons; i++) {
       threads.add(new Thread(doConsumer, Integer.toString(i)));
@@ -126,15 +129,14 @@ public class ProdCons2 {
       Thread.sleep(100); // sleep for 1 second
       producer.start();
       for (int i = 0; i < numCons; i++) {
-        synchronized (synObj) {
-          try {
-            synObj.notifyAll();
-          } catch (Exception e) {
-            System.err.println(e.getMessage());
-          }
-        }
+//        synchronized (synObj) {
+//          try {
+//            synObj.notifyAll();
+//          } catch (Exception e) {
+//            System.err.println(e.getMessage());
+//          }
+//        }
         threads.get(i).join();
-        joined++;
         System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
       }
       printConsumerCounts();
