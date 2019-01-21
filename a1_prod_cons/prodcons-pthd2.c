@@ -14,6 +14,7 @@
 pthread_mutex_t lock;
 pthread_cond_t cond;
 queue_t *buf;
+int consumed_count = 0;
 
 void producer() {
   printf("Producer starting on core %2d\n", sched_getcpu());
@@ -30,16 +31,21 @@ void producer() {
 }
 
 void consumer(long tid) {
-  int i = 0, i_count = 0;
+  int item = 0, end = 0;
   printf("Consumer[%3ld] starting on core %2d\n", tid, sched_getcpu());
-  while(i_count < 100) {
+  while(1) {
     pthread_mutex_lock(&lock);
-    if (buf->size<1) pthread_cond_wait(&cond, &lock);
-    i = remove_item(buf);
-    i_count++;
+    while (buf->size<1) pthread_cond_wait(&cond, &lock);
+    item = remove_item(buf);
+    consumed_count++;
     pthread_cond_signal(&cond);
-    printf("Consumer[%3ld] removed value %3d\n", tid, i);
+    printf("Consumer[%3ld] removed value %3d\n", tid, item);
+    if (consumed_count >= 99) {
+      end = 1;
+      pthread_cond_signal(&cond);
+    }
     pthread_mutex_unlock(&lock);
+    if (end) break;
   }
 }
 
@@ -73,6 +79,7 @@ int main(int argc, char **argv) {
   producer();
   for (int i=0;i<numCons;i++) {
     pthread_join(threads[i], NULL);
+    printf("Thread %3d reaped.\n", i);
   }
 }
 
