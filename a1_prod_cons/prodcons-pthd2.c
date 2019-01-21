@@ -48,7 +48,8 @@ void consumer(long tid) {
       consumed_global_count++;
       consumer_counts[tid]++;
       pthread_cond_signal(&cond);
-      printf("Consumer[%3ld] removed value %3d\n", tid, item);
+      printf("Consumer[%3ld] removed value %3d (qsize = %d)\n", 
+             tid, item, buf->size);
       if (consumed_global_count >= 100) {
         end = 1;
         pthread_cond_signal(&cond);
@@ -57,6 +58,7 @@ void consumer(long tid) {
     pthread_mutex_unlock(&lock);
     if (end) break;
   }
+  printf("---< Consumer[%3ld] ending >---\n", tid);
 }
 
 int get_numCons(int argc, char **argv) {
@@ -87,8 +89,10 @@ int main(int argc, char **argv) {
     pthread_create(&threads[i], NULL, (void *)consumer, (void*)i);
   }
   producer();
+  printf("\n");
   for (int i=0;i<numCons;i++) {
     pthread_join(threads[i], NULL);
+    printf(" --  Consumer[%3d] joined  --\n", i);
   }
   int sum;
   for (int i=0;i<numCons;i++) {
