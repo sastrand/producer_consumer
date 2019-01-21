@@ -60,10 +60,9 @@ public class ProdCons2 {
               consumerCounts.set(tid, consumerCounts.get(tid) + 1);
               synObj.notifyAll();
               System.out.printf("Consumer[%s] removed value %3d (qsize = %d)\n",
-                                Thread.currentThread().getName(), item, buf.size());
+                      Thread.currentThread().getName(), item, buf.size());
             }
-          } 
-          catch (Exception e) {
+          } catch (Exception e) {
             System.err.println(e.getMessage());
           }
         }
@@ -86,7 +85,7 @@ public class ProdCons2 {
         return numCons;
       } else {
         System.out.println("Please supply a number of consumers greater than 1 and less than 1000.\n"
-                           + usingDefault);
+                + usingDefault);
       }
     }
     return 1;
@@ -95,8 +94,8 @@ public class ProdCons2 {
   private static void printConsumerCounts() {
     Integer sum = 0;
     System.out.printf("\n");
-    for (int i=0;i<numCons;i++) {
-      if (i<numCons-1) {
+    for (int i = 0; i < numCons; i++) {
+      if (i < numCons - 1) {
         System.out.printf("C[%d]:%d, ", i, consumerCounts.get(i));
       } else {
         System.out.printf("C[%d]:%d\n", i, consumerCounts.get(i));
@@ -118,24 +117,21 @@ public class ProdCons2 {
     try {
       for (int i = 0; i < numCons; i++) {
         threads.get(i).start();
-      } 
+      }
       Thread.sleep(100); // sleep for 1 second
       producer.start();
       System.out.println(" ");
-      while (joined < numCons) {
-        for (int i = 0; i < numCons; i++) {
-          synchronized (synObj) {
-            try {
-              synObj.notifyAll();
-            }
-            catch (Exception e) {
-              System.err.println(e.getMessage());
-            }
+      for (int i = 0; i < numCons; i++) {
+        synchronized (synObj) {
+          try {
+            synObj.notifyAll();
+          } catch (Exception e) {
+            System.err.println(e.getMessage());
           }
-          threads.get(i).join();
-          joined++;
-          System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
         }
+        threads.get(i).join();
+        joined++;
+        System.out.printf(" --  Consumer[%d] joined.  -- \n", i);
       }
       printConsumerCounts();
     } catch (Exception e) {
